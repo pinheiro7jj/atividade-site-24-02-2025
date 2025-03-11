@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vinicius Pinheiro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #2a3642;
+            color: #2a3642;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #000016;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px #878a8d;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: top 0.3s ease;
+            box-shadow: 0 4px 30px #535353;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style-type: none;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        
+        }
+
+        nav ul li a:hover {
+            color: hsl(281, 100%, 30%);
+        }
+
+        /* Imagem na Navbar */
+        nav img.logo-navbar {
+            height: 40px; /* Tamanho da imagem */
+            width: auto;
+            position: absolute;
+            left: 20px; /* Ajuste da posição horizontal */
+            top: 20px; /* Ajuste da posição vertical */
+        }
+
+        /* Seção Foto */
+        #foto {
+            display: flex;
+            justify-content: center;
+            margin-top: 120px; /* Espaço para a navbar fixa */
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+        #foto img {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #343a40;
+           
+        }
+
+        #foto h1 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        /* Seção Sobre Mim */
+        #sobre-mim {
+            margin: 40px auto;
+            padding: 40px;
+            width: 80%;
+            max-width: 900px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            text-align: center;
+            background-color: #2a3642;
+            color: #fff;
+            border-radius: 8px;
+        }
+
+        #sobre-mim .info {
+            max-width: 600px;
+        }
+
+        #sobre-mim p {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #ddd;
+        }
+
+        /* Linha verde entre as seções */
+        #linha-verde {
+            border-top: 4px solid hsl(281, 100%, 30%);
+            margin-top: 60px;
+            box-shadow: 0 10px 40px #a33fac;
+        }
+
+        /* Seção Projetos */
+        #projetos {
+            background-color: #1a2129;
+            padding: 60px 20px;
+        }
+
+        #projetos h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #c5c5c5;
+        }
+
+        .projetos-container {
+            display: block;
+            margin-top: 30px;
+        }
+
+        .projeto {
+            background-color: #bb6dd3;
+            padding: 20px;
+           
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .projeto:hover {
+            transform: translateY(-15px);
+        }
+
+        .projeto h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .projeto p {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .projeto a {
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .projeto a:hover {
+            color: #8af7ff;
+        }
+        
+
+        /* Seção Contato */
+        #contato {
+            background-color: #1a2129;
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        #contato h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #c5c5c5;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #343a40;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #444;
+            color: #fff;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: hsl(281, 100%, 30%);
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: hsl(281, 100%, 30%);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #000016;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 30px #fb86ff;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+
+        }
+
+        .footer-content p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: hsl(281, 100%, 30%);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            footer {
+                padding: 15px;
+            }
+
+            .social-icons a {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#sobre-mim">Sobre Mim</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <!-- Logo dentro da navbar -->
+            <img src="image/Captura de tela 2025-03-11 153533.png" alt="Logo" class="logo-navbar">
+        </nav>
+    </header>
+
+    <!-- Seção Foto -->
+    <section id="foto">
+        <h1>Vinicius Pinheiro</h1>
+        <img src="image/WhatsApp Image 2025-02-24 at 14.37.32.jpeg" alt="Foto de Perfil">
+    </section>
+
+    <!-- Linha verde entre as seções -->
+    <div id="linha-verde"></div>
+
+    <!-- Seção Projetos -->
+    <section id="projetos">
+        <h2>Meus Projetos</h2>
+        <div class="projetos-container">
+            <div class="projeto">
+                <h3>Projeto 1</h3>
+                <p>Esse projeto foi um site para gerenciamento de estoque para uma loja de bicicletas</p>
+                <a href="https://github.com/pinheiro7jj/repositorio" target="_blank">Ver mais</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre Mim -->
+    <section id="sobre-mim">
+        <div class="info">
+            <h1>SOBRE MIM</h1>
+            <p>Meu nome é Vinicius Pinheiro, tenho 17 anos, nasci em Joinville, e estou cursando Desenvolvimento de Sistemas.</p>
+            <p>Tenho o objetivo de fazer faculdade de Ciências da Computação e me aprofundar cada vez mais no mundo da tecnologia.</p>
+            <p></p>
+            <h3>Habilidades</h3>
+            <p>Eu tenho um conhecimento básico em HTML, CSS e PYTHON</p>
+            <p></p>
+            <h3>Formação Acadêmica</h3>
+            <p>Estou terminando o ensino médio, e estou cursando desinvolvimento de sistemas</p>
+            <p></p>
+            <h3>Experiência Profissional</h3>
+            <p>Ainda não tenho nenhuma Experiência profissional</p>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato">
+        <h2>Entre em Contato</h2>
+        <div class="form-container">
+            <form action="envio.php" method="post">
+                <input type="text" name="nome" placeholder="Seu Nome" required>
+                <input type="email" name="email" placeholder="Seu E-mail" required>
+                <textarea name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Vinicius Pinheiro. Todos os direitos reservados.</p>
+            <div class="social-icons">
+                <a href="" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/pinheiro7jj" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:vinicius@example.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
